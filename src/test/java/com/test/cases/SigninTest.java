@@ -8,7 +8,7 @@ import com.test.BaseTest;
 public class SigninTest extends BaseTest{
 	
 	private Object[][] users = {
-			{"loko@test.com","Santiago","arvizu","password","Jersey City",30,"4426244708","76220","Melchor ocampo"}
+			{"lokoooo@test.com","Santiago","arvizu","password","Jersey City",30,"4426244708","76220","Melchor ocampo"}
 		};
 	
 	@DataProvider(name="users")
