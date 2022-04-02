@@ -1,4 +1,4 @@
-package com.test.cases;
+package pageObjects;
 
 import static org.testng.Assert.assertEquals;
 
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class SignInPage{
+public class CreateAccountPage{
 
 	private WebDriver driver;
 	private WebDriverWait wait;
@@ -53,7 +53,7 @@ public class SignInPage{
 	@FindBy(id = "submitAccount")
 	private WebElement registerBtn;
 
-	public SignInPage(WebDriver driver, String first_name, String last_name, String password, String city, int state, String phone, String zip, String address) {
+	public CreateAccountPage(WebDriver driver, String first_name, String last_name, String password, String city, int state, String phone, String zip, String address) {
 		super();
 		this.driver = driver;
 		this.first_name = first_name;

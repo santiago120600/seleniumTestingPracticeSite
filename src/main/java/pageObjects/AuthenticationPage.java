@@ -1,4 +1,4 @@
-package com.test.cases;
+package pageObjects;
 
 import static org.testng.Assert.assertEquals;
 
@@ -18,9 +18,6 @@ public class AuthenticationPage {
 	private WebDriverWait wait;
 	private String email;
 
-	@FindBy(xpath = "//a[contains(text(),'Sign')]")
-	private WebElement signinBtn;
-
 	@FindBy(id="email_create")
 	private WebElement emailInput;
 
@@ -34,11 +31,17 @@ public class AuthenticationPage {
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
+	
+	public WebElement getEmailInput() {
+		return emailInput;
+	}
+
+	public WebElement getCreateAccountBtn() {
+		return createAccountBtn;
+	}
 
 	@Test
-	public void goToRegister() {
-		driver.get("http://automationpractice.com/index.php");
-		signinBtn.click();
+	public void fillCreateAccountCard() {
 		this.wait.until(ExpectedConditions.visibilityOf(this.emailInput));
 		this.emailInput.sendKeys(this.email);
 		this.createAccountBtn.click();

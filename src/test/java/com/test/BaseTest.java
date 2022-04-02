@@ -18,15 +18,22 @@ public abstract class BaseTest {
 
 	@BeforeTest
 	public void beforeTest() throws MalformedURLException {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setBrowserName("chrome");
-		
-		String host = "localhost";
-		if (System.getProperty("HUB_HOST") != null) {
-			host = System.getProperty("HUB_HOST");
+		if(System.getProperty("DOCKER") == "true") {			
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			capabilities.setBrowserName("chrome");
+			
+			String host = "localhost";
+			if (System.getProperty("HUB_HOST") != null) {
+				host = System.getProperty("HUB_HOST");
+			}
+			String completeUrl = "http://" + host + ":4444/wd/hub";
+			this.driver = new RemoteWebDriver(new URL(completeUrl), capabilities);
+		}else {
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--incognito");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver(options);
 		}
-		String completeUrl = "http://" + host + ":4444/wd/hub";
-		this.driver = new RemoteWebDriver(new URL(completeUrl), capabilities);
 	}
 
 	@AfterTest

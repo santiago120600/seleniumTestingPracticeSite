@@ -1,4 +1,4 @@
-package com.test.cases;
+package pageObjects;
 
 import java.time.Duration;
 
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class SignOutPage {
+public class MyAccountPage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
@@ -32,7 +32,7 @@ public class SignOutPage {
 	@FindBy(xpath = "//a[@class='logout']")
 	private WebElement signOutBtn;
 	
-	public SignOutPage(WebDriver driver) {
+	public MyAccountPage(WebDriver driver) {
 		super();
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
